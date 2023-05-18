@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Field</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+    <h3>Field List</h3>
+    <a th:href="@{/addnew}" class="btn btn-primary btn-sm mb-3">Add Field</a>
+    <a th:href="@{/add/new_feedback}" class="btn btn-primary btn-sm mb-3">Feedback</a>
+    <table style="width:80%" border="1"
+           class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Landlord name</th>
+            <th>Landlord phone number</th>
+            <th>Landlord email</th>
+            <th>Field name</th>
+            <th>Price per hour</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="field:${allemplist}">
+
+        <td th:text="${field.landlordName}"></td>
+        <td th:text="${field.landlordPhoneNumber}"></td>
+        <td th:text="${field.landlordEmail}"></td>
+        <td th:text="${field.fieldName}"></td>
+        <td th:text="${field.pricePerHour}"></td>
+        <td th:text="${field.address}"></td>
+        <td><a th:href="@{/showFormForUpdate/{id}(id=${field.id})}" class="btn btn-primary">Update</a>
+            <a th:href="@{/deleteField/{id}(id=${field.id})}" class="btn btn-danger">Delete</a>
+            <a th:href="@{/add/new_order/{id}(id=${field.id})}" class="btn btn-primary">Book</a>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

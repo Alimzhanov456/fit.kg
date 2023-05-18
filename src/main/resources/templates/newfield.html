@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Field Management System</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Field Management System</h1>
+    <hr>
+    <h2>Save Field</h2>
+
+    <form action="#" th:action="@{/save}" th:object="${field}" method="POST">
+
+        <input type="text" th:field="*{landlordName}" placeholder="Landlord name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{landlordPhoneNumber}" placeholder="Landlord phone number" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{landlordEmail}" placeholder="Landlord email" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{fieldName}" placeholder="Field name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{pricePerHour}" placeholder="Price per hour" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{address}" placeholder="Address" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Save Field</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Field List</a>
+</div>
+</body>
+</html>
